@@ -1,5 +1,7 @@
 package br.com.g5.agendacontatos;
 
+import java.util.Scanner;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,8 @@ public class Contato {
     private Telefone telefone;
     private String chavePix;
     private List<Filme> listaFilmes = new ArrayList<>();
+
+    public Contato(){}
 
     public Contato(String nome) {
         this.nome = nome;
@@ -87,5 +91,29 @@ public class Contato {
         sb.append(String.format("Chave PIX: %s.%n", this.chavePix));
 
         return sb.toString();
+    }
+
+
+
+    public Contato setContato() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome: ");
+        setNome(sc.nextLine());
+        System.out.println("Digite o telefone: ");
+        String telefoneContato = sc.nextLine();
+
+        Telefone telefone = new Telefone(telefoneContato);
+        setTelefone(telefone);
+
+
+        System.out.println("Digite o endereço: ");
+        setEndereco(sc.nextLine());
+        System.out.println("Digite o e-mail: ");
+        setEmail(sc.nextLine());
+
+        System.out.println("Digite a chave PIX: ");
+        setChavePix(sc.nextLine());
+
+        return this;
     }
 }

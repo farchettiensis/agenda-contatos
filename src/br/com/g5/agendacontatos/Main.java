@@ -18,6 +18,7 @@ public class Main {
 
         Contato contato2 = new Contato("Walter Becker", telefone2, "Rua Custerdome, 2", "wbecker@steely.dan", "homeAtLast");
         Contato contato3 = new Contato("Skunk Baxter", telefone3, "Rua Custerdome, 3", "sbaxter@doobie.bros", "46346585");
+        Contato contato4 = new Contato("Donald Fagen", telefone1, "Rua Custerdome, 4", "dfagen2@steely.dan", "deaconBlues2");
 
         Filme rato = new Filme("Ratatouille");
         Filme us = new Filme("Us");
@@ -27,10 +28,11 @@ public class Main {
         agenda.adicionarContato(contato1);
         agenda.adicionarContato(contato2);
         agenda.adicionarContato(contato3);
+        //agenda.adicionarContato(contato4);
 
         contato1.cadastrarFilme(rato);
         contato1.cadastrarFilme(us);
-        contato1.cadastrarFilme(corra);
+        //contato1.cadastrarFilme(corra);
         contato1.darNotaFilme(rato,10.00);
         contato1.detalharContato();
 

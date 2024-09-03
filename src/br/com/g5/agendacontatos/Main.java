@@ -1,10 +1,10 @@
-package br.com.farchettiensis.agendacontatos;
+package br.com.g5.agendacontatos;
 
 public class Main {
     public static void main(String[] args) {
         Telefone telefone1 = new Telefone("12345678909", TipoTelefone.CELULAR);
         Telefone telefone2 = new Telefone("98765432109", TipoTelefone.CASA);
-        Telefone telefone3 = new Telefone("12345678909", TipoTelefone.TRABALHO);
+        Telefone telefone3 = new Telefone("12345678919", TipoTelefone.TRABALHO);
 
         Contato contato1 = new Contato("Donald Fagen", telefone1, "Rua Custerdome, 1", "dfagen@steely.dan", "deaconBlues");
         String cont1Detalhes = contato1.detalharContato();
@@ -21,5 +21,8 @@ public class Main {
 
         agenda.removerContato(contato3);
         System.out.println(agenda.listarTodosOsContatos());
+
+        String retorno = agenda.buscarContato("12345678909");
+        System.out.println(retorno);
     }
 }

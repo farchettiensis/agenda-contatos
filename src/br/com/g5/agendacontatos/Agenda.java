@@ -1,4 +1,4 @@
-package br.com.farchettiensis.agendacontatos;
+package br.com.g5.agendacontatos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +11,18 @@ public class Agenda {
     }
 
     public void adicionarContato(Contato contato) {
-        this.contatos.add(contato);
+        if (!isContatoDuplicado(contato)) {
+            this.contatos.add(contato);
+        } else {
+            throw new IllegalArgumentException("Contato com o mesmo nome ou número de telefone já existe.");
+        }
     }
 
     public void removerContato(Contato contato) {
+        if (!this.contatos.contains(contato)) {
+            throw new IllegalArgumentException("Contato não encontrado.");
+        }
         this.contatos.remove(contato);
-    }
-
-    public List<Contato> listarContatos() {
-        return this.contatos;
     }
 
     public String buscarContato(String telefone) {
@@ -28,7 +31,7 @@ public class Agenda {
                 return contato.detalharContato();
             }
         }
-        return "Contato não encontrado.";
+        throw new IllegalArgumentException("Contato com o telefone " + telefone + " não foi encontrado.");
     }
 
     public String listarTodosOsContatos() {
@@ -45,5 +48,13 @@ public class Agenda {
         return sb.toString();
     }
 
-
+    private boolean isContatoDuplicado(Contato novoContato) {
+        for (Contato contato : this.contatos) {
+            if (contato.getNome().equals(novoContato.getNome()) ||
+                    contato.getTelefone().getNumero().equals(novoContato.getTelefone().getNumero())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

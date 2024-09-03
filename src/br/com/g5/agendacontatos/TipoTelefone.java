@@ -1,4 +1,4 @@
-package br.com.farchettiensis.agendacontatos;
+package br.com.g5.agendacontatos;
 
 public enum TipoTelefone {
     CELULAR("Celular"),

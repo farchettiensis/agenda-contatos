@@ -77,11 +77,36 @@ public class Contato {
         this.telefone = telefone;
     }
 
-    public List<Filme> getListaFilmes() {
-        return listaFilmes;
+    public String listarFilmes() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Lista de Filmes: \n");
+        for (Filme filme : this.listaFilmes) {
+            sb.append(filme+String.format("%-5s"," "));
+        }
+        return sb.toString();
     }
 
+    public void cadastrarFilme(Filme filme) {
+        if (!isFilmeDuplicado(filme)) {
+            listaFilmes.add(filme);
+        } else {
+            throw new IllegalArgumentException("Filme já se encontra na lista");
+        }
+    }
 
+    public void darNotaFilme(Filme filme, Double nota) {
+        boolean encontrado = false;
+        for (Filme f : listaFilmes) {
+            if (f.getNome().equalsIgnoreCase(filme.getNome())) {
+                f.setNota(nota);
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            throw new IllegalArgumentException("Filme não encontrado na lista");
+        }
+    }
     public String detalharContato() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Nome: %s.%n", this.nome));
@@ -89,6 +114,7 @@ public class Contato {
         sb.append(String.format("Endereço: %s.%n", this.endereco));
         sb.append(String.format("Email: %s.%n", this.email));
         sb.append(String.format("Chave PIX: %s.%n", this.chavePix));
+        sb.append(String.format((this.listarFilmes())));
 
         return sb.toString();
     }
@@ -115,5 +141,14 @@ public class Contato {
         setChavePix(sc.nextLine());
 
         return this;
+    }
+
+    private boolean isFilmeDuplicado(Filme filme) {
+        for (Filme f : this.listaFilmes) {
+           if  (f.getNome().equalsIgnoreCase(filme.getNome())) {
+               return true;
+           }
+        }
+        return false;
     }
 }

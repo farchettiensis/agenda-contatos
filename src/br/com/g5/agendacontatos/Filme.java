@@ -23,4 +23,9 @@ public class Filme {
     public void setNota(Double nota) {
         this.nota = nota;
     }
+
+    @Override
+    public String toString() {
+        return nome+", "+(nota!=null?nota:"N/A")+"\u2605";  //"\u2605" = unicode pra ★
+    }
 }

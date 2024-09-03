@@ -1,5 +1,7 @@
 package br.com.g5.agendacontatos;
 
+import br.com.g5.agendacontatos.enuns.OperacoesSistema;
+
 import java.util.Scanner;
 
 public class Sistema {

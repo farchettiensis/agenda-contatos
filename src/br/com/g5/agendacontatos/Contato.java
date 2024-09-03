@@ -2,12 +2,16 @@ package br.com.g5.agendacontatos;
 
 import java.util.Scanner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Contato {
     private String nome;
     private String email;
     private String endereco;
     private Telefone telefone;
     private String chavePix;
+    private List<Filme> listaFilmes = new ArrayList<>();
 
     public Contato(){}
 
@@ -72,6 +76,11 @@ public class Contato {
     public void setTelefone(Telefone telefone) {
         this.telefone = telefone;
     }
+
+    public List<Filme> getListaFilmes() {
+        return listaFilmes;
+    }
+
 
     public String detalharContato() {
         StringBuilder sb = new StringBuilder();

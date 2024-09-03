@@ -1,5 +1,8 @@
 package br.com.g5.agendacontatos;
 
+import br.com.g5.agendacontatos.util.Predicados;
+import br.com.g5.agendacontatos.util.Verificador;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +14,8 @@ public class Agenda {
     }
 
     public void adicionarContato(Contato contato) {
-        if (!isContatoDuplicado(contato)) {
+        if (!Verificador.isDuplicado(contatos, Predicados.ContatoPredicado(contato.getNome()))
+        || !Verificador.isDuplicado(contatos, Predicados.ContatoPredicado(contato.getTelefone().getNumero()))) {
             this.contatos.add(contato);
         } else {
             throw new IllegalArgumentException("Contato com o mesmo nome ou número de telefone já existe.");
@@ -34,7 +38,6 @@ public class Agenda {
         }
         throw new IllegalArgumentException("Contato com o telefone " + telefone + " não foi encontrado.");
     }
-
     public String listarTodosOsContatos() {
         StringBuilder sb = new StringBuilder();
         for (Contato contato : this.contatos) {
@@ -49,6 +52,7 @@ public class Agenda {
         return sb.toString();
     }
 
+    /*
     private boolean isContatoDuplicado(Contato novoContato) {
         for (Contato contato : this.contatos) {
             if (contato.getNome().equalsIgnoreCase(novoContato.getNome()) ||
@@ -57,5 +61,5 @@ public class Agenda {
             }
         }
         return false;
-    }
+    }*/
 }

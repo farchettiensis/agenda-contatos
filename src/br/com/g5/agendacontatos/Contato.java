@@ -1,5 +1,8 @@
 package br.com.g5.agendacontatos;
 
+import br.com.g5.agendacontatos.util.Predicados;
+import br.com.g5.agendacontatos.util.Verificador;
+
 import java.util.Scanner;
 
 import java.util.ArrayList;
@@ -79,15 +82,18 @@ public class Contato {
 
     public String listarFilmes() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Lista de Filmes: \n");
+        sb.append("Lista de Filmes: ");
         for (Filme filme : this.listaFilmes) {
             sb.append(filme+String.format("%-5s"," "));
+        }
+        if (listaFilmes.isEmpty()) {
+            sb.append("lista vazia!\n");
         }
         return sb.toString();
     }
 
     public void cadastrarFilme(Filme filme) {
-        if (!isFilmeDuplicado(filme)) {
+        if (!Verificador.isDuplicado(this.listaFilmes, Predicados.FilmePredicado(filme.getNome()))) {
             listaFilmes.add(filme);
         } else {
             throw new IllegalArgumentException("Filme já se encontra na lista");
@@ -143,6 +149,7 @@ public class Contato {
         return this;
     }
 
+    /*
     private boolean isFilmeDuplicado(Filme filme) {
         for (Filme f : this.listaFilmes) {
            if  (f.getNome().equalsIgnoreCase(filme.getNome())) {
@@ -150,5 +157,5 @@ public class Contato {
            }
         }
         return false;
-    }
+    }*/
 }

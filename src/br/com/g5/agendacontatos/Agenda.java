@@ -25,10 +25,11 @@ public class Agenda {
         this.contatos.remove(contato);
     }
 
-    public String buscarContato(String telefone) {
+    public void buscarContato(String telefone) {
         for (Contato contato : this.contatos) {
             if (contato.getTelefone().getNumero().equals(telefone)) {
-                return contato.detalharContato();
+                System.out.println(contato.detalharContato());
+                return;
             }
         }
         throw new IllegalArgumentException("Contato com o telefone " + telefone + " não foi encontrado.");

@@ -51,7 +51,7 @@ public class Agenda {
 
     private boolean isContatoDuplicado(Contato novoContato) {
         for (Contato contato : this.contatos) {
-            if (contato.getNome().equals(novoContato.getNome()) ||
+            if (contato.getNome().equalsIgnoreCase(novoContato.getNome()) ||
                     contato.getTelefone().getNumero().equals(novoContato.getTelefone().getNumero())) {
                 return true;
             }

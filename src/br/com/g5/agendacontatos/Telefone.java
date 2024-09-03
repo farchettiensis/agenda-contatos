@@ -1,5 +1,7 @@
 package br.com.g5.agendacontatos;
 
+import br.com.g5.agendacontatos.enuns.TipoTelefone;
+
 import java.util.Scanner;
 
 public class Telefone {

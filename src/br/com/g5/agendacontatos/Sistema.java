@@ -56,6 +56,10 @@ public class Sistema {
                     System.out.println("Digite o telefone do contato: ");
                     agenda.buscarContato(sc.next());
                     break;
+                case EDITAR:
+                    System.out.println("Digite o telefone do contato a ser editado: ");
+                    agenda.editarContato(sc.next());
+                    break;
                 case LISTAR:
                     System.out.println(agenda.listarTodosOsContatos());
                     break;

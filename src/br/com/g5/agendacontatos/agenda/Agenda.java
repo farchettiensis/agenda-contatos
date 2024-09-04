@@ -24,6 +24,16 @@ public class Agenda {
         }
     }
 
+    public void editarContato(String telefone) {
+        for (Contato contato : this.contatos) {
+            if (contato.getTelefone().getNumero().equals(telefone)) {
+                Contato novoContato = new Contato();
+                novoContato.setContato();
+                this.contatos.set(contatos.indexOf(contato), novoContato);
+            }
+        }
+    }
+
     public void removerContato(Contato contato) {
         if (!this.contatos.contains(contato)) {
             throw new IllegalArgumentException("Contato não encontrado.");

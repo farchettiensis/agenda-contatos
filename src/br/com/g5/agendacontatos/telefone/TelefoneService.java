@@ -21,4 +21,10 @@ public class TelefoneService extends Telefone{
 
         return telefone;
     }
+
+    public String requisitarStringTelefoneNoTerminal() {
+        System.out.println("Escreva o número que deseja localizar:");
+        return sc.nextLine();
+    }
+
 }

@@ -77,42 +77,12 @@ public class Contato {
         return this.telefone;
     }
 
+    public String getNumeroTelefone(){
+        return this.telefone.getNumero();
+    }
+
     public void setTelefone(Telefone telefone) {
         this.telefone = telefone;
-    }
-
-    public String detalharContato() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Nome: %s.%n", this.getNome()));
-        sb.append(String.format("Telefone: %s.%n", this.getTelefone().getNumero()));
-        sb.append(String.format("Endereço: %s.%n", this.getEndereco()));
-        sb.append(String.format("Email: %s.%n", this.getEmail()));
-        sb.append(String.format("Chave PIX: %s.%n", this.getChavePix()));
-        sb.append(String.format((this.listarFilmes())));
-
-        return sb.toString();
-    }
-
-    public Contato setContato() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o nome: ");
-        setNome(sc.nextLine());
-        System.out.println("Digite o telefone: ");
-        String telefoneContato = sc.nextLine();
-
-        Telefone telefone = new Telefone(telefoneContato);
-        setTelefone(telefone);
-
-
-        System.out.println("Digite o endereço: ");
-        setEndereco(sc.nextLine());
-        System.out.println("Digite o e-mail: ");
-        setEmail(sc.nextLine());
-
-        System.out.println("Digite a chave PIX: ");
-        setChavePix(sc.nextLine());
-
-        return this;
     }
 
     public String listarFilmes() {
@@ -148,13 +118,16 @@ public class Contato {
             throw new IllegalArgumentException("Filme não encontrado na lista");
         }
     }
-    /*
-    private boolean isFilmeDuplicado(Filme filme) {
-        for (Filme f : this.listaFilmes) {
-           if  (f.getNome().equalsIgnoreCase(filme.getNome())) {
-               return true;
-           }
-        }
-        return false;
-    }*/
+
+    @Override
+    public String toString() {
+        return "Contato{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", endereco='" + endereco + '\'' +
+                telefone.toString() +
+                ", chavePix='" + chavePix + '\'' +
+                ", listaFilmes=" + listaFilmes +
+                '}';
+    }
 }

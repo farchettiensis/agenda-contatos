@@ -1,17 +1,17 @@
 package br.com.g5.agendacontatos;
 
 import br.com.g5.agendacontatos.agenda.Agenda;
-import br.com.g5.agendacontatos.contato.Contato;
+import br.com.g5.agendacontatos.agenda.AgendaController;
 import br.com.g5.agendacontatos.enuns.OperacoesSistema;
 
 import java.util.Scanner;
 
-public class Sistema {
+public class MenuAgenda {
+    AgendaController agendaController = new AgendaController();
 
-    public void setOperacao() {
+    public void iniciarMenuAgenda() {
         int opcao;
         OperacoesSistema operacao = null;
-        Agenda agenda = new Agenda();
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -49,15 +49,15 @@ public class Sistema {
 
             switch (operacao){
                 case ADICIONAR:
-                    Contato contato = new Contato();
-                    agenda.adicionarContato(contato.setContato());
+                    agendaController.adicionarContato();
                     break;
                 case DETALHAR:
                     System.out.println("Digite o telefone do contato: ");
-                    agenda.buscarContato(sc.next());
+                    agendaController.deltalharContatoPorTelefone();
                     break;
                 case LISTAR:
-                    System.out.println(agenda.listarTodosOsContatos());
+//                    todo: criar listar todos contatos
+//                    System.out.println(agenda.listarTodosOsContatos());
                     break;
             }
         } while (operacao != OperacoesSistema.SAIR);
@@ -67,11 +67,6 @@ public class Sistema {
 
     public void getOperacao() {
 
-    }
-
-    public void iniciarSistema(){
-        setOperacao();
-        getOperacao();
     }
 
 }

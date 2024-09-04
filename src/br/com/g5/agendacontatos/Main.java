@@ -9,8 +9,10 @@ import br.com.g5.agendacontatos.telefone.TipoTelefone;
 public class Main {
     public static void main(String[] args) {
         AgendaController controller = new AgendaController();
+        MenuAgenda menuAgenda = new MenuAgenda();
 
-        controller.adicionarContato();
+
+        menuAgenda.iniciarMenuAgenda();
 
 
     }

@@ -28,4 +28,8 @@ public class ContatoService extends  Contato{
     }
 
 
+    public void detalharContato(Contato contato) {
+        System.out.println(contato.toString());
+    }
+
 }

@@ -1,4 +1,4 @@
-package br.com.g5.agendacontatos.enuns;
+package br.com.g5.agendacontatos.telefone;
 
 public enum TipoTelefone {
     CELULAR("Celular"),

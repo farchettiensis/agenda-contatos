@@ -1,12 +1,13 @@
-package br.com.g5.agendacontatos;
+package br.com.g5.agendacontatos.contato;
 
+import br.com.g5.agendacontatos.Filme;
+import br.com.g5.agendacontatos.telefone.Telefone;
 import br.com.g5.agendacontatos.util.Predicados;
 import br.com.g5.agendacontatos.util.Verificador;
 
-import java.util.Scanner;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Contato {
     private String nome;
@@ -80,6 +81,40 @@ public class Contato {
         this.telefone = telefone;
     }
 
+    public String detalharContato() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Nome: %s.%n", this.getNome()));
+        sb.append(String.format("Telefone: %s.%n", this.getTelefone().getNumero()));
+        sb.append(String.format("Endereço: %s.%n", this.getEndereco()));
+        sb.append(String.format("Email: %s.%n", this.getEmail()));
+        sb.append(String.format("Chave PIX: %s.%n", this.getChavePix()));
+        sb.append(String.format((this.listarFilmes())));
+
+        return sb.toString();
+    }
+
+    public Contato setContato() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome: ");
+        setNome(sc.nextLine());
+        System.out.println("Digite o telefone: ");
+        String telefoneContato = sc.nextLine();
+
+        Telefone telefone = new Telefone(telefoneContato);
+        setTelefone(telefone);
+
+
+        System.out.println("Digite o endereço: ");
+        setEndereco(sc.nextLine());
+        System.out.println("Digite o e-mail: ");
+        setEmail(sc.nextLine());
+
+        System.out.println("Digite a chave PIX: ");
+        setChavePix(sc.nextLine());
+
+        return this;
+    }
+
     public String listarFilmes() {
         StringBuilder sb = new StringBuilder();
         sb.append("Lista de Filmes: ");
@@ -113,42 +148,6 @@ public class Contato {
             throw new IllegalArgumentException("Filme não encontrado na lista");
         }
     }
-    public String detalharContato() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Nome: %s.%n", this.nome));
-        sb.append(String.format("Telefone: %s.%n", this.telefone.getNumero()));
-        sb.append(String.format("Endereço: %s.%n", this.endereco));
-        sb.append(String.format("Email: %s.%n", this.email));
-        sb.append(String.format("Chave PIX: %s.%n", this.chavePix));
-        sb.append(String.format((this.listarFilmes())));
-
-        return sb.toString();
-    }
-
-
-
-    public Contato setContato() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o nome: ");
-        setNome(sc.nextLine());
-        System.out.println("Digite o telefone: ");
-        String telefoneContato = sc.nextLine();
-
-        Telefone telefone = new Telefone(telefoneContato);
-        setTelefone(telefone);
-
-
-        System.out.println("Digite o endereço: ");
-        setEndereco(sc.nextLine());
-        System.out.println("Digite o e-mail: ");
-        setEmail(sc.nextLine());
-
-        System.out.println("Digite a chave PIX: ");
-        setChavePix(sc.nextLine());
-
-        return this;
-    }
-
     /*
     private boolean isFilmeDuplicado(Filme filme) {
         for (Filme f : this.listaFilmes) {

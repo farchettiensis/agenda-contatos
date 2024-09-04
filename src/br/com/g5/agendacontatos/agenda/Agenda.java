@@ -1,5 +1,7 @@
-package br.com.g5.agendacontatos;
+package br.com.g5.agendacontatos.agenda;
 
+import br.com.g5.agendacontatos.contato.Contato;
+import br.com.g5.agendacontatos.telefone.Telefone;
 import br.com.g5.agendacontatos.util.Predicados;
 import br.com.g5.agendacontatos.util.Verificador;
 
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda {
-    private final List<Contato> contatos;
+    protected final List<Contato> contatos;
 
     public Agenda() {
         this.contatos = new ArrayList<>();
@@ -15,7 +17,7 @@ public class Agenda {
 
     public void adicionarContato(Contato contato) {
         if (!Verificador.isDuplicado(contatos, Predicados.ContatoPredicado(contato.getNome()))
-        || !Verificador.isDuplicado(contatos, Predicados.ContatoPredicado(contato.getTelefone().getNumero()))) {
+                || !Verificador.isDuplicado(contatos, Predicados.ContatoPredicado(contato.getTelefone().getNumero()))) {
             this.contatos.add(contato);
         } else {
             throw new IllegalArgumentException("Contato com o mesmo nome ou número de telefone já existe.");

@@ -64,6 +64,10 @@ public class Agenda {
         return sb.toString();
     }
 
+    public String listarFilmesContato(Contato contato) {
+        return contato.listarFilmes();
+    }
+
     /*
     private boolean isContatoDuplicado(Contato novoContato) {
         for (Contato contato : this.contatos) {

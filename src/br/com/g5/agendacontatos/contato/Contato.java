@@ -122,7 +122,7 @@ public class Contato {
             sb.append(filme+String.format("%-5s"," "));
         }
         if (listaFilmes.isEmpty()) {
-            sb.append("lista vazia!\n");
+            sb.append("lista vazia!");
         }
         return sb.toString();
     }

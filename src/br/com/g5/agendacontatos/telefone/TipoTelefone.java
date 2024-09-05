@@ -17,4 +17,5 @@ public enum TipoTelefone {
     public String getDescricao() {
         return this.descricao;
     }
+
 }

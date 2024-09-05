@@ -7,14 +7,12 @@ import br.com.g5.agendacontatos.util.Verificador;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Contato {
     private String nome;
     private String email;
     private String endereco;
     private Telefone telefone;
-    private String chavePix;
     private List<Filme> listaFilmes = new ArrayList<>();
 
     public Contato(){}
@@ -31,23 +29,15 @@ public class Contato {
     public Contato(String nome,
                    Telefone telefone,
                    String endereco,
-                   String email,
-                   String chavePix
+                   String email
     ) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
         this.email = email;
-        this.chavePix = chavePix;
+
     }
 
-    public String getChavePix() {
-        return chavePix;
-    }
-
-    public void setChavePix(String chavePix) {
-        this.chavePix = chavePix;
-    }
 
     public String getNome() {
         return this.nome;
@@ -117,17 +107,5 @@ public class Contato {
         if (!encontrado) {
             throw new IllegalArgumentException("Filme não encontrado na lista");
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Contato{" +
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", endereco='" + endereco + '\'' +
-                telefone.toString() +
-                ", chavePix='" + chavePix + '\'' +
-                ", listaFilmes=" + listaFilmes +
-                '}';
     }
 }

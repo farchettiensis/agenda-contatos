@@ -7,7 +7,7 @@ public class TelefoneService extends Telefone{
     Scanner sc = new Scanner(System.in);
     public Telefone requisitarTelefoneNoTerminal() {
         Telefone telefone = new Telefone();
-        System.out.println("Escreva o seu numero");
+        System.out.println("Digite o numero de telefone:");
         telefone.setNumero(sc.next());
         System.out.println("Escolha o tipo do telefone: \n" +
                 "\n 1 - Celular" +

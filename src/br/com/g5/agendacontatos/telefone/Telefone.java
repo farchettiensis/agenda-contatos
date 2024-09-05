@@ -30,10 +30,6 @@ public class Telefone {
         return tipo;
     }
 
-    public void setTipo(TipoTelefone tipo) {
-        this.tipo = tipo;
-    }
-
     public void setTipo(int opcao) {
         this.tipo = TipoTelefone.values()[opcao - 1];
     }
@@ -41,7 +37,7 @@ public class Telefone {
     @Override
     public String toString() {
         return "Telefone{" +
-                "tipo=" + tipo +
+                "tipo=" + tipo.toString() +
                 ", numero='" + numero + '\'' +
                 '}';
     }

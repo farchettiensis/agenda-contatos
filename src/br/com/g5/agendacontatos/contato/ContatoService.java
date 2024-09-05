@@ -14,14 +14,12 @@ public class ContatoService extends  Contato{
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome: ");
         contato.setNome(sc.nextLine());
-        System.out.println("Digite o telefone: ");
         contato.setTelefone(telefoneService.requisitarTelefoneNoTerminal());
         System.out.println("Digite o endereço: ");
         contato.setEndereco(sc.nextLine());
         System.out.println("Digite o e-mail: ");
         contato.setEmail(sc.nextLine());
-        System.out.println("Digite a chave PIX: ");
-        contato.setChavePix(sc.nextLine());
+
 
             System.out.println("Contato salvo com sucesso");
             return  contato;
@@ -29,7 +27,15 @@ public class ContatoService extends  Contato{
 
 
     public void detalharContato(Contato contato) {
-        System.out.println(contato.toString());
+        StringBuilder sb = new StringBuilder();
+        sb.append("Contato {")
+                .append("\n  Nome: ").append(contato.getNome())
+                .append("\n  Email: ").append(contato.getEmail())
+                .append("\n  Endereço: ").append(contato.getEmail())
+                .append("\n  Telefone: ").append(contato.getNumeroTelefone())
+                .append("\n}");
+
+        System.out.println(sb);
     }
 
 }

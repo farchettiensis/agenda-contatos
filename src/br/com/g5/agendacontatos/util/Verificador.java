@@ -12,6 +12,8 @@ public class Verificador {
             }
         }
         return false;
-
+    }
+    public static <T> boolean isValido(T t, Predicate<T> predicado) {
+        return predicado.test(t);
     }
 }

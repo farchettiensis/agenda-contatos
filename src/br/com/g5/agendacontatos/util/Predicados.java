@@ -1,7 +1,7 @@
 package br.com.g5.agendacontatos.util;
 
 import br.com.g5.agendacontatos.contato.Contato;
-import br.com.g5.agendacontatos.Filme;
+import br.com.g5.agendacontatos.filme.Filme;
 
 import java.util.function.Predicate;
 

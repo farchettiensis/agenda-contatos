@@ -9,13 +9,20 @@ public class TelefoneService extends Telefone{
         Telefone telefone = new Telefone();
         System.out.println("Digite o numero de telefone:");
         telefone.setNumero(sc.next());
-        System.out.println("Escolha o tipo do telefone: \n" +
-                "\n 1 - Celular" +
-                "\n 2 - Casa" +
-                "\n 3 - Trabalho" +
-                "\n 4 - Escola" +
-                "\n 5 - Principal" +
-                "\n 6 - Outro");
+        System.out.println("""
+                Escolha o tipo do telefone:\s
+                
+                 1 - Celular\
+                
+                 2 - Casa\
+                
+                 3 - Trabalho\
+                
+                 4 - Escola\
+                
+                 5 - Principal\
+                
+                 6 - Outro""");
         int opcao = sc.nextInt();
         super.setTipo(opcao);
 

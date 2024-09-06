@@ -1,10 +1,7 @@
 package br.com.g5.agendacontatos.agenda;
 
-import br.com.g5.agendacontatos.contato.Contato;
 import br.com.g5.agendacontatos.contato.ContatoService;
-import br.com.g5.agendacontatos.telefone.Telefone;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
-import br.com.g5.agendacontatos.telefone.TipoTelefone;
 
 public class AgendaController {
     ContatoService contatoService = new ContatoService();
@@ -21,6 +18,10 @@ public class AgendaController {
 
     public void listarTodosOsContatos(){
         agendaService.listarContatos();
+    }
+
+    public void editarContatoPorStringTelefone() {
+        agendaService.editarContatoPorStringTelefone(telefoneService.requisitarStringTelefoneNoTerminal());
     }
 
     public void removerContatoPorTelefone() {

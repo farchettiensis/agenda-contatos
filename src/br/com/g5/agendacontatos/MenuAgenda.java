@@ -53,9 +53,10 @@ public class MenuAgenda {
                     controller.detalharContatoPorTelefone();
                     break;
                 case EDITAR:
-//                    System.out.println("Digite o telefone do contato a ser editado: ");
-//                    agenda.editarContato(sc.next());
+                    controller.editarContatoPorStringTelefone();
                     break;
+                case REMOVER:
+                    controller.removerContatoPorTelefone();
                 case LISTAR:
                     controller.listarTodosOsContatos();
                     break;

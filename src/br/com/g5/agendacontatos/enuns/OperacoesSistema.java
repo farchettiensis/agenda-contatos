@@ -7,5 +7,5 @@ public enum OperacoesSistema {
     REMOVER,
     LISTAR,
     ADICIONAR_FILME,
-    SAIR;
+    SAIR
 }

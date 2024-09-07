@@ -5,7 +5,6 @@ import br.com.g5.agendacontatos.filme.Filme;
 import br.com.g5.agendacontatos.telefone.Telefone;
 import br.com.g5.agendacontatos.telefone.TipoTelefone;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,8 +1,6 @@
 package br.com.g5.agendacontatos.contato;
 
-import br.com.g5.agendacontatos.filme.Filme;
 import br.com.g5.agendacontatos.filme.FilmeService;
-import br.com.g5.agendacontatos.telefone.Telefone;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
 
 import java.util.Scanner;

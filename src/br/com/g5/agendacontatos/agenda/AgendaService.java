@@ -2,7 +2,6 @@ package br.com.g5.agendacontatos.agenda;
 
 import br.com.g5.agendacontatos.contato.Contato;
 import br.com.g5.agendacontatos.contato.ContatoService;
-import br.com.g5.agendacontatos.filme.Filme;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
 import br.com.g5.agendacontatos.util.Predicados;
 import br.com.g5.agendacontatos.util.Verificador;

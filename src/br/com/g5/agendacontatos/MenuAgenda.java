@@ -27,7 +27,8 @@ public class MenuAgenda {
             System.out.println("3 - Editar Contato");
             System.out.println("4 - Remover Contatos");
             System.out.println("5 - Listar Contatos");
-            System.out.println("6 - Sair\n");
+            System.out.println("6 - Adicionar Filme");
+            System.out.println("7 - Sair\n");
             System.out.print("Escolha uma opção: ");
 
             if (sc.hasNextInt()) {
@@ -60,6 +61,8 @@ public class MenuAgenda {
                 case LISTAR:
                     controller.listarTodosOsContatos();
                     break;
+                case ADICIONAR_FILME:
+                    controller.adicionarFilme();
             }
         } while (operacao != OperacoesSistema.SAIR);
 

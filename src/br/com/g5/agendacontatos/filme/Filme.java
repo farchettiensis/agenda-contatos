@@ -6,8 +6,9 @@ public class Filme {
 
     public Filme() {};
 
-    public Filme(String nome) {
+    public Filme(String nome, Double nota) {
         this.nome = nome;
+        this.nota = nota;
     }
 
     public String getNome() {

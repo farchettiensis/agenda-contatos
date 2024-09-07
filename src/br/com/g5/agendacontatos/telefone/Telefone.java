@@ -34,11 +34,4 @@ public class Telefone {
         this.tipo = TipoTelefone.values()[opcao - 1];
     }
 
-    @Override
-    public String toString() {
-        return "Telefone{" +
-                "tipo=" + tipo.toString() +
-                ", numero='" + numero + '\'' +
-                '}';
-    }
 }

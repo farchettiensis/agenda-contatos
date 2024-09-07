@@ -1,5 +1,7 @@
 package br.com.g5.agendacontatos.contato;
 
+import br.com.g5.agendacontatos.filme.Filme;
+import br.com.g5.agendacontatos.filme.FilmeService;
 import br.com.g5.agendacontatos.telefone.Telefone;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
 
@@ -7,6 +9,7 @@ import java.util.Scanner;
 
 public class ContatoService extends  Contato{
     TelefoneService telefoneService = new TelefoneService();
+    FilmeService filmeService = new FilmeService();
 
 
     public Contato requisitarContatoNoTerminal() {
@@ -33,9 +36,14 @@ public class ContatoService extends  Contato{
                 .append("\n  Email: ").append(contato.getEmail())
                 .append("\n  Endereço: ").append(contato.getEmail())
                 .append("\n  Telefone: ").append(contato.getNumeroTelefone())
+                .append("\n  Filmes: ").append(contato.getListaFilmes())
                 .append("\n}");
 
         System.out.println(sb);
+    }
+
+    public void adicionarFilmeEmContato(Contato contato) {
+        contato.cadastrarFilme(filmeService.requisitarFilmeNoTerminal());
     }
 
 }

@@ -38,6 +38,13 @@ public class Contato {
 
     }
 
+    public Contato(String nome, String email, String endereco, Telefone telefone, Filme filme) {
+        this.nome = nome;
+        this.email = email;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        listaFilmes.add(filme);
+    }
 
     public String getNome() {
         return this.nome;
@@ -75,37 +82,37 @@ public class Contato {
         this.telefone = telefone;
     }
 
-    public String listarFilmes() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Lista de Filmes: ");
-        for (Filme filme : this.listaFilmes) {
-            sb.append(filme+String.format("%-5s"," "));
-        }
-        if (listaFilmes.isEmpty()) {
-            sb.append("lista vazia!\n");
-        }
-        return sb.toString();
+//    public String listarFilmes() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("Lista de Filmes: ");
+//        for (Filme filme : this.listaFilmes) {
+//            sb.append(filme+String.format("%-5s"," "));
+//        }
+//        if (listaFilmes.isEmpty()) {
+//            sb.append("lista vazia!\n");
+//        }
+//        return sb.toString();
+//    }
+
+    public List<Filme> getListaFilmes() {
+        return listaFilmes;
     }
 
     public void cadastrarFilme(Filme filme) {
-        if (!Verificador.isDuplicado(this.listaFilmes, Predicados.FilmePredicado(filme.getNome()))) {
-            listaFilmes.add(filme);
-        } else {
-            throw new IllegalArgumentException("Filme já se encontra na lista");
-        }
+        listaFilmes.add(filme);
     }
 
-    public void darNotaFilme(Filme filme, Double nota) {
-        boolean encontrado = false;
-        for (Filme f : listaFilmes) {
-            if (f.getNome().equalsIgnoreCase(filme.getNome())) {
-                f.setNota(nota);
-                encontrado = true;
-                break;
-            }
-        }
-        if (!encontrado) {
-            throw new IllegalArgumentException("Filme não encontrado na lista");
-        }
-    }
+//    public void darNotaFilme(Filme filme, Double nota) {
+//        boolean encontrado = false;
+//        for (Filme f : listaFilmes) {
+//            if (f.getNome().equalsIgnoreCase(filme.getNome())) {
+//                f.setNota(nota);
+//                encontrado = true;
+//                break;
+//            }
+//        }
+//        if (!encontrado) {
+//            throw new IllegalArgumentException("Filme não encontrado na lista");
+//        }
+//    }
 }

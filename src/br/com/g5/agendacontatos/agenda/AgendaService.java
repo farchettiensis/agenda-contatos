@@ -20,16 +20,16 @@ public class AgendaService extends Agenda{
 
     public void buscarContatoPorStringTelefone(String telefone) {
         for (Contato contato : getContatos()) {
+
             if (contato.getNumeroTelefone().equals(telefone)) {
                 System.out.println("CONTATO:");
                 contatoService.detalharContato(contato);
                 return;
-            }  else {
-                System.out.println("Contato não encontrado!");
-                return;
             }
+            }
+        System.out.println("Contato não encontrado!");
         }
-    }
+
 
     public void editarContatoPorStringTelefone(String telefone) {
         for (Contato contato : getContatos()) {

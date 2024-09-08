@@ -23,8 +23,5 @@ public class Verificador {
     public static boolean emailIsValido(String email) {
         return email.matches("^[A-Za-z0-9_.]+@[A-Za-z0-9.]+\\.[A-Za-z]{2,}$");
     }
-    public static boolean telefoneIsValido(Telefone telefone) {
-        return telefone.getNumero().matches("^[0-9]{8,11}");
-    }
 
 }

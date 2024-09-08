@@ -1,14 +1,29 @@
 package br.com.g5.agendacontatos.telefone;
 
+import br.com.g5.agendacontatos.contato.Contato;
+import br.com.g5.agendacontatos.util.Verificador;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class TelefoneService extends Telefone{
 
     Scanner sc = new Scanner(System.in);
-    public Telefone requisitarTelefoneNoTerminal() {
+    public Telefone requisitarTelefoneNoTerminal(List<Contato> contatos) {
+        Boolean validacao = true;
         Telefone telefone = new Telefone();
         System.out.println("Digite o numero de telefone:");
-        telefone.setNumero(sc.next());
+        String numero = sc.next();
+        do {
+            if (!isTelefoneValido(numero)) {
+                System.out.print("Formato de telefone inválido, tente novamente: ");
+                numero = sc.next();
+            } else if (checarSeTelefoneExiste(contatos, numero)) {
+                System.out.print("Telefone ja existe, tente novamente: ");
+                numero = sc.next();
+            }
+        } while (!isTelefoneValido(numero) || checarSeTelefoneExiste(contatos,numero));
+        telefone.setNumero(numero);
         System.out.println("""
                 Escolha o tipo do telefone:\s
                 
@@ -25,13 +40,20 @@ public class TelefoneService extends Telefone{
                  6 - Outro""");
         int opcao = sc.nextInt();
         super.setTipo(opcao);
-
         return telefone;
     }
 
     public String requisitarStringTelefoneNoTerminal() {
         System.out.println("Escreva o número que deseja localizar:");
         return sc.nextLine();
+    }
+
+    public Boolean checarSeTelefoneExiste(List<Contato> contatos, String numero) {
+        return contatos.stream().anyMatch(x->x.getNumeroTelefone().equals(numero));
+    }
+
+    public boolean isTelefoneValido(String numero) {
+        return numero.matches("^[0-9]{8,11}");
     }
 
 }

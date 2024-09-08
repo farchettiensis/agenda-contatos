@@ -3,6 +3,7 @@ package br.com.g5.agendacontatos.contato;
 import br.com.g5.agendacontatos.filme.FilmeService;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ContatoService extends  Contato{
@@ -10,12 +11,12 @@ public class ContatoService extends  Contato{
     FilmeService filmeService = new FilmeService();
 
 
-    public Contato requisitarContatoNoTerminal() {
+    public Contato requisitarContatoNoTerminal(List<Contato> contatos) {
         Contato contato = new Contato();
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome: ");
         contato.setNome(sc.nextLine());
-        contato.setTelefone(telefoneService.requisitarTelefoneNoTerminal());
+        contato.setTelefone(telefoneService.requisitarTelefoneNoTerminal(contatos));
         System.out.println("Digite o endereço: ");
         contato.setEndereco(sc.nextLine());
         System.out.println("Digite o e-mail: ");

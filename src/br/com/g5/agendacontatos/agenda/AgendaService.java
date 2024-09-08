@@ -3,20 +3,14 @@ package br.com.g5.agendacontatos.agenda;
 import br.com.g5.agendacontatos.contato.Contato;
 import br.com.g5.agendacontatos.contato.ContatoService;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
-import br.com.g5.agendacontatos.util.Predicados;
-import br.com.g5.agendacontatos.util.Verificador;
 
 public class AgendaService extends Agenda{
     ContatoService contatoService = new ContatoService();
     TelefoneService telefoneService = new TelefoneService();
 
-    public void adicionarContato(Contato contato) {
-        if (!Verificador.isDuplicado(getContatos(), Predicados.ContatoPredicado(contato.getNome()))
-                || !Verificador.isDuplicado(getContatos(), Predicados.ContatoPredicado(contato.getTelefone().getNumero()))) {
-            getContatos().add(contato);
-        } else {
-            throw new IllegalArgumentException("Contato com o mesmo nome ou número de telefone já existe.");
-        }
+    public void adicionarContato() {
+        Contato contato = contatoService.requisitarContatoNoTerminal(getContatos());
+        getContatos().add(contato);
     }
 
     public void buscarContatoPorStringTelefone(String telefone) {
@@ -35,7 +29,7 @@ public class AgendaService extends Agenda{
     public void editarContatoPorStringTelefone(String telefone) {
         for (Contato contato : getContatos()) {
             if (contato.getTelefone().getNumero().equals(telefone)) {
-                Contato novoContato = contatoService.requisitarContatoNoTerminal();
+                Contato novoContato = contatoService.requisitarContatoNoTerminal(getContatos());
                 this.contatos.set(contatos.indexOf(contato), novoContato);
             }
         }

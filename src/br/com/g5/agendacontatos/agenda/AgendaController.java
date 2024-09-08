@@ -9,7 +9,7 @@ public class AgendaController {
     TelefoneService telefoneService = new TelefoneService();
 
     public void adicionarContato() {
-        agendaService.adicionarContato(contatoService.requisitarContatoNoTerminal());
+        agendaService.adicionarContato();
     }
 
     public void detalharContatoPorTelefone() {

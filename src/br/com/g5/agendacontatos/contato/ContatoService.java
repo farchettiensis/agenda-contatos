@@ -33,8 +33,9 @@ public class ContatoService extends  Contato{
         sb.append("Contato {")
                 .append("\n  Nome: ").append(contato.getNome())
                 .append("\n  Email: ").append(contato.getEmail())
-                .append("\n  Endereço: ").append(contato.getEmail())
+                .append("\n  Endereço: ").append(contato.getEndereco())
                 .append("\n  Telefone: ").append(contato.getNumeroTelefone())
+                .append("\n  Tipo de telefone: ").append(contato.getTipoTelefone())
                 .append("\n  Filmes: ").append(contato.getListaFilmes())
                 .append("\n}");
 

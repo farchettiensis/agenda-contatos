@@ -76,22 +76,14 @@ public class Contato {
     public String getNumeroTelefone(){
         return this.telefone.getNumero();
     }
+    public String getTipoTelefone(){
+        return this.telefone.getTipo().getDescricao();
+    }
 
     public void setTelefone(Telefone telefone) {
         this.telefone = telefone;
     }
 
-//    public String listarFilmes() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("Lista de Filmes: ");
-//        for (Filme filme : this.listaFilmes) {
-//            sb.append(filme+String.format("%-5s"," "));
-//        }
-//        if (listaFilmes.isEmpty()) {
-//            sb.append("lista vazia!\n");
-//        }
-//        return sb.toString();
-//    }
 
     public List<Filme> getListaFilmes() {
         return listaFilmes;
@@ -101,17 +93,5 @@ public class Contato {
         listaFilmes.add(filme);
     }
 
-//    public void darNotaFilme(Filme filme, Double nota) {
-//        boolean encontrado = false;
-//        for (Filme f : listaFilmes) {
-//            if (f.getNome().equalsIgnoreCase(filme.getNome())) {
-//                f.setNota(nota);
-//                encontrado = true;
-//                break;
-//            }
-//        }
-//        if (!encontrado) {
-//            throw new IllegalArgumentException("Filme não encontrado na lista");
-//        }
-//    }
+
 }

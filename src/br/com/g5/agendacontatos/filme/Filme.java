@@ -4,10 +4,11 @@ public class Filme {
     private String nome;
     private Double nota;
 
-    public Filme() {};
+    public Filme() {}
 
-    public Filme(String nome) {
+    public Filme(String nome, Double nota) {
         this.nome = nome;
+        this.nota = nota;
     }
 
     public String getNome() {

@@ -2,12 +2,13 @@ package br.com.g5.agendacontatos.agenda;
 
 import br.com.g5.agendacontatos.contato.Contato;
 import br.com.g5.agendacontatos.contato.ContatoService;
+import br.com.g5.agendacontatos.telefone.TelefoneService;
 import br.com.g5.agendacontatos.util.Predicados;
 import br.com.g5.agendacontatos.util.Verificador;
 
 public class AgendaService extends Agenda{
     ContatoService contatoService = new ContatoService();
-
+    TelefoneService telefoneService = new TelefoneService();
 
     public void adicionarContato(Contato contato) {
         if (!Verificador.isDuplicado(getContatos(), Predicados.ContatoPredicado(contato.getNome()))
@@ -63,5 +64,16 @@ public class AgendaService extends Agenda{
             }
         }
     }
+
+    public void adicionarFilmeEmContatoPorTelefoneString(String telefone) {
+        for (Contato contato : getContatos()) {
+            if (contato.getNumeroTelefone().equals(telefone)) {
+                contatoService.adicionarFilmeEmContato(contato);
+            }
+        }
+
+    }
+
+
 
 }

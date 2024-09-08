@@ -28,4 +28,8 @@ public class AgendaController {
         agendaService.removerContato(telefoneService.requisitarStringTelefoneNoTerminal());
     }
 
+    public void adicionarFilme() {
+        agendaService.adicionarFilmeEmContatoPorTelefoneString(telefoneService.requisitarStringTelefoneNoTerminal());
+    }
+
 }

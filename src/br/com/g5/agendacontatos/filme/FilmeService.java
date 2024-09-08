@@ -7,9 +7,9 @@ public class FilmeService extends Filme {
 
     public Filme requisitarFilmeNoTerminal() {
         System.out.print("Digite o título: ");
-        String titulo = sc.next();
+        String titulo = sc.nextLine();
         System.out.print("Digite a nota para o filme: ");
-        Double nota = sc.nextDouble();
+        Double nota = Double.parseDouble(sc.nextLine());
         return new Filme(titulo, nota);
     }
 

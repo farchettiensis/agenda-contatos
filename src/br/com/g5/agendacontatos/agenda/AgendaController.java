@@ -1,7 +1,5 @@
 package br.com.g5.agendacontatos.agenda;
 
-import br.com.g5.agendacontatos.contato.ContatoService;
-import br.com.g5.agendacontatos.telefone.TelefoneService;
 
 public class AgendaController {
     AgendaService agendaService = new AgendaService();

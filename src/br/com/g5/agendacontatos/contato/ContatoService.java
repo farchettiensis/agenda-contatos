@@ -29,15 +29,14 @@ public class ContatoService extends  Contato{
 
 
     public void detalharContato(Contato contato) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Contato {")
-                .append("\n  Nome: ").append(contato.getNome())
-                .append("\n  Email: ").append(contato.getEmail())
-                .append("\n  Endereço: ").append(contato.getEndereco())
-                .append("\n  Telefone: ").append(contato.getNumeroTelefone())
-                .append("\n  Tipo de telefone: ").append(contato.getTipoTelefone())
-                .append("\n  Filmes: ").append(contato.getListaFilmes())
-                .append("\n}");
+        String sb = "Contato {" +
+                "\n  Nome: " + contato.getNome() +
+                "\n  Email: " + contato.getEmail() +
+                "\n  Endereço: " + contato.getEndereco() +
+                "\n  Telefone: " + contato.getNumeroTelefone() +
+                "\n  Tipo de telefone: " + contato.getTipoTelefone() +
+                "\n  Filmes: " + contato.getListaFilmes() +
+                "\n}";
 
         System.out.println(sb);
     }

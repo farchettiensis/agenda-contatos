@@ -16,27 +16,6 @@ public class Contato {
 
     public Contato(){}
 
-    public Contato(String nome) {
-        this.nome = nome;
-    }
-
-    public Contato(String nome, Telefone telefone) {
-        this.nome = nome;
-        this.telefone = telefone;
-    }
-
-    public Contato(String nome,
-                   Telefone telefone,
-                   String endereco,
-                   String email
-    ) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.email = email;
-
-    }
-
     public Contato(String nome, String email, String endereco, Telefone telefone, Filme filme) {
         this.nome = nome;
         this.email = email;

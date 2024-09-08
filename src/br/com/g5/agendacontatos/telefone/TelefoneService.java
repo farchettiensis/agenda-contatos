@@ -1,7 +1,6 @@
 package br.com.g5.agendacontatos.telefone;
 
 import br.com.g5.agendacontatos.contato.Contato;
-import br.com.g5.agendacontatos.util.Verificador;
 
 import java.util.List;
 import java.util.Scanner;

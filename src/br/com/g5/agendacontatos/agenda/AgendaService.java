@@ -13,28 +13,26 @@ public class AgendaService extends Agenda{
         getContatos().add(contato);
     }
 
-    public void buscarContatoPorStringTelefone(String telefone) {
+    public void buscarContatoPorStringTelefone() {
+        String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
-
             if (contato.getNumeroTelefone().equals(telefone)) {
                 System.out.println("CONTATO:");
                 contatoService.detalharContato(contato);
-                return;
             }
             }
-        System.out.println("Contato não encontrado!");
         }
 
 
-    public void editarContatoPorStringTelefone(String telefone) {
+    public void editarContatoPorStringTelefone() {
+        String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
             if (contato.getTelefone().getNumero().equals(telefone)) {
                 Contato novoContato = contatoService.requisitarContatoNoTerminal(getContatos());
                 this.contatos.set(contatos.indexOf(contato), novoContato);
             }
         }
-        System.out.println("Contato não encontrado");
-        return;
+
     }
 
     public void listarContatos(){
@@ -43,7 +41,8 @@ public class AgendaService extends Agenda{
         }
     }
 
-    public void removerContato(String telefone) {
+    public void removerContato() {
+        String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
             if (contato.getNumeroTelefone().equals(telefone)) {
                 System.out.println("Contato:");
@@ -51,14 +50,12 @@ public class AgendaService extends Agenda{
                 getContatos().remove(contato);
                 System.out.println("Removido com sucesso!");
                 return;
-            }  else {
-                System.out.println("Contato não encontrado!");
-                return;
             }
         }
     }
 
-    public void adicionarFilmeEmContatoPorTelefoneString(String telefone) {
+    public void adicionarFilmeEmContatoPorTelefoneString() {
+        String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
             if (contato.getNumeroTelefone().equals(telefone)) {
                 contatoService.adicionarFilmeEmContato(contato);

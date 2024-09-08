@@ -13,7 +13,7 @@ public class AgendaController {
     }
 
     public void detalharContatoPorTelefone() {
-        agendaService.buscarContatoPorStringTelefone(telefoneService.requisitarStringTelefoneNoTerminal());
+        agendaService.buscarContatoPorStringTelefone();
     }
 
     public void listarTodosOsContatos(){
@@ -21,15 +21,15 @@ public class AgendaController {
     }
 
     public void editarContatoPorStringTelefone() {
-        agendaService.editarContatoPorStringTelefone(telefoneService.requisitarStringTelefoneNoTerminal());
+        agendaService.editarContatoPorStringTelefone();
     }
 
     public void removerContatoPorTelefone() {
-        agendaService.removerContato(telefoneService.requisitarStringTelefoneNoTerminal());
+        agendaService.removerContato();
     }
 
     public void adicionarFilme() {
-        agendaService.adicionarFilmeEmContatoPorTelefoneString(telefoneService.requisitarStringTelefoneNoTerminal());
+        agendaService.adicionarFilmeEmContatoPorTelefoneString();
     }
 
 }

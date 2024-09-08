@@ -11,7 +11,7 @@ import java.util.List;
 public class Agenda {
     final List<Contato> contatos;
 
-    Telefone victorTelefone = new Telefone("123", TipoTelefone.CELULAR);
+    Telefone victorTelefone = new Telefone("12345678912", TipoTelefone.CELULAR);
     Filme victorFilme = new Filme("Dune 2", 10.0D);
     Contato victor = new Contato("Victor", "victor.fagundes586@gmail.com", "Sao joao del rei", victorTelefone, victorFilme);
 

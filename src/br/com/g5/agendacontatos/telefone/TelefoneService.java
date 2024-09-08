@@ -10,7 +10,6 @@ public class TelefoneService extends Telefone{
 
     Scanner sc = new Scanner(System.in);
     public Telefone requisitarTelefoneNoTerminal(List<Contato> contatos) {
-        Boolean validacao = true;
         Telefone telefone = new Telefone();
         System.out.println("Digite o numero de telefone:");
         String numero = sc.next();
@@ -39,13 +38,26 @@ public class TelefoneService extends Telefone{
                 
                  6 - Outro""");
         int opcao = sc.nextInt();
-        super.setTipo(opcao);
+        setTipo(opcao);
         return telefone;
     }
 
-    public String requisitarStringTelefoneNoTerminal() {
+    public String requisitarStringTelefoneNoTerminal(List<Contato> contatos) {
         System.out.println("Escreva o número que deseja localizar:");
-        return sc.nextLine();
+        String numero =  sc.nextLine();
+        do {
+            if (!isTelefoneValido(numero)) {
+                System.out.print("Formato de telefone inválido, tente novamente: ");
+                numero = sc.next();
+            }
+            if (!checarSeTelefoneExiste(contatos, numero)) {
+                System.out.print("Telefone não existe, tente novamente: ");
+                numero = sc.next();
+            }
+            return numero;
+    } while (!isTelefoneValido(numero) || checarSeTelefoneExiste(contatos,numero));
+
+
     }
 
     public Boolean checarSeTelefoneExiste(List<Contato> contatos, String numero) {

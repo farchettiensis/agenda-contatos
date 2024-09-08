@@ -37,11 +37,10 @@ public class AgendaService extends Agenda{
             if (contato.getTelefone().getNumero().equals(telefone)) {
                 Contato novoContato = contatoService.requisitarContatoNoTerminal();
                 this.contatos.set(contatos.indexOf(contato), novoContato);
-            } else {
-                System.out.println("Contato não encontrado!");
-                return;
             }
         }
+        System.out.println("Contato não encontrado");
+        return;
     }
 
     public void listarContatos(){

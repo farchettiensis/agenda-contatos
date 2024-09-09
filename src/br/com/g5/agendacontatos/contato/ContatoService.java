@@ -11,12 +11,9 @@ public class ContatoService extends  Contato{
     TelefoneService telefoneService = new TelefoneService();
     FilmeService filmeService = new FilmeService();
 
-
     public Contato requisitarContatoNoTerminal (List<Contato> contatos) {
         Contato contato = new Contato();
-
         try {
-
             Scanner sc = new Scanner(System.in);
             System.out.println("Digite o nome: ");
             contato.setNome(sc.nextLine());
@@ -30,15 +27,12 @@ public class ContatoService extends  Contato{
                 email = sc.nextLine();
             }
             contato.setEmail(email);
-
             System.out.println("Contato salvo com sucesso");
-
         } catch (Exception e) {
             System.out.println("Erro interno de sistema. Tente novamente.");
         }
         return contato;
     }
-
 
     public void detalharContato(Contato contato) {
         String sb = "Contato {" +
@@ -49,7 +43,6 @@ public class ContatoService extends  Contato{
                 "\n  Tipo de telefone: " + contato.getTipoTelefone() +
                 "\n  Filmes: " + contato.getListaFilmes() +
                 "\n}";
-
         System.out.println(sb);
     }
 

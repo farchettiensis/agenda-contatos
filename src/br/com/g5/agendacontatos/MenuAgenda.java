@@ -11,11 +11,12 @@ public class MenuAgenda {
     public void iniciarMenuAgenda() {
         AgendaController controller = new AgendaController();
         int opcao = 0;
-        boolean opcaoValida = false;
+
         OperacoesSistema operacao = null;
         Scanner sc = new Scanner(System.in);
 
         do {
+            boolean opcaoValida = false;
             System.out.println(
                     """
                             \n##################
@@ -59,16 +60,16 @@ public class MenuAgenda {
                     break;
                 case REMOVER:
                     controller.removerContatoPorTelefone();
+                    break;
                 case LISTAR:
                     controller.listarTodosOsContatos();
                     break;
                 case ADICIONAR_FILME:
                     controller.adicionarFilme();
+                    break;
             }
         } while (operacao != OperacoesSistema.SAIR);
-
         sc.close();
     }
-
 }
 

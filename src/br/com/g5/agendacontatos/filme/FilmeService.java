@@ -8,12 +8,14 @@ public class FilmeService extends Filme {
     Scanner sc = new Scanner(System.in);
 
     public Filme requisitarFilmeNoTerminal(List<Filme> filmes) {
+
         System.out.print("Digite o título: ");
         String titulo = sc.nextLine();
         while (filmeIsDuplicado(filmes,titulo)) {
             System.out.print("Filme ja existe na lista, adicione outro: ");
             titulo = sc.nextLine();
         }
+
         Double nota = null;
         while (nota == null) {
             try {
@@ -28,6 +30,7 @@ public class FilmeService extends Filme {
                 sc.nextLine();
             }
         }
+
         System.out.println("\nFilme avaliado com sucesso!");
         return new Filme(titulo, nota);
     }

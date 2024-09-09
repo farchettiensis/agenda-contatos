@@ -23,7 +23,6 @@ public class AgendaService extends Agenda{
         }
     }
 
-
     public void editarContatoPorStringTelefone() {
         String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
@@ -35,7 +34,6 @@ public class AgendaService extends Agenda{
                 this.contatos.set(contatos.indexOf(contato), novoContato);
             }
         }
-
     }
 
     public void listarContatos(){
@@ -48,7 +46,6 @@ public class AgendaService extends Agenda{
         String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
             if (contato.getNumeroTelefone().equals(telefone)) {
-                System.out.println("Contato:");
                 contatoService.detalharContato(contato);
                 getContatos().remove(contato);
                 System.out.println("Removido com sucesso!");
@@ -66,7 +63,4 @@ public class AgendaService extends Agenda{
         }
 
     }
-
-
-
 }

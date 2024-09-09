@@ -1,5 +1,6 @@
 package br.com.g5.agendacontatos.filme;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,8 +14,21 @@ public class FilmeService extends Filme {
             System.out.print("Filme ja existe na lista, adicione outro: ");
             titulo = sc.nextLine();
         }
-        System.out.print("Digite a nota para o filme: ");
-        Double nota = sc.nextDouble();
+        Double nota = null;
+        while (nota == null) {
+            try {
+                System.out.print("Digite a nota para o filme: ");
+                nota = sc.nextDouble();
+                if (nota < 0 || nota > 10) {
+                    nota = null;
+                    throw new InputMismatchException();
+                }
+            } catch (InputMismatchException e) {
+                System.out.printf("Nota inválida! Digite uma nota de 1 a 10 para o filme %s \n \n", titulo);
+                sc.nextLine();
+            }
+        }
+        System.out.println("\nFilme avaliado com sucesso!");
         return new Filme(titulo, nota);
     }
 

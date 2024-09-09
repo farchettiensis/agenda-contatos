@@ -2,6 +2,7 @@ package br.com.g5.agendacontatos.agenda;
 
 import br.com.g5.agendacontatos.contato.Contato;
 import br.com.g5.agendacontatos.contato.ContatoService;
+import br.com.g5.agendacontatos.filme.Filme;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
 
 public class AgendaService extends Agenda{
@@ -28,6 +29,9 @@ public class AgendaService extends Agenda{
         for (Contato contato : getContatos()) {
             if (contato.getTelefone().getNumero().equals(telefone)) {
                 Contato novoContato = contatoService.requisitarContatoNoTerminal(getContatos());
+                for (Filme filme: contato.getListaFilmes()) {
+                    novoContato.cadastrarFilme(filme);
+                }
                 this.contatos.set(contatos.indexOf(contato), novoContato);
             }
         }

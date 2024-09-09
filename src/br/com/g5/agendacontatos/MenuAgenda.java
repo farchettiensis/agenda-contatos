@@ -3,13 +3,15 @@ package br.com.g5.agendacontatos;
 import br.com.g5.agendacontatos.agenda.AgendaController;
 import br.com.g5.agendacontatos.enuns.OperacoesSistema;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuAgenda {
 
     public void iniciarMenuAgenda() {
         AgendaController controller = new AgendaController();
-        int opcao;
+        int opcao = 0;
+        boolean opcaoValida = false;
         OperacoesSistema operacao = null;
         Scanner sc = new Scanner(System.in);
 
@@ -31,19 +33,18 @@ public class MenuAgenda {
             System.out.println("7 - Sair\n");
             System.out.print("Escolha uma opção: ");
 
-            if (sc.hasNextInt()) {
+            while (!opcaoValida) {
+            try {
                 opcao = sc.nextInt();
-
-                if (opcao >= 1 && opcao <= OperacoesSistema.values().length) {
-                    operacao = OperacoesSistema.values()[opcao - 1];
-                } else {
-                    System.out.println("Opção inválida. Tente novamente!");
-                    sc.nextInt();
+                if (opcao > OperacoesSistema.values().length) {
+                    throw new InputMismatchException();
                 }
-            } else {
-                System.out.println("Opção inválida. Tente novamente!");
-                sc.nextInt();
-                continue;
+                operacao = OperacoesSistema.values()[opcao - 1];
+                opcaoValida = true;
+                } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
+                System.out.printf("Opção inválida. Insira um número de 1 a %d.", OperacoesSistema.values().length);
+                sc.nextLine();
+                }
             }
 
             switch (operacao){

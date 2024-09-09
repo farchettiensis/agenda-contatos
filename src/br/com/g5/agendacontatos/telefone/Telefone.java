@@ -22,7 +22,7 @@ public class Telefone {
     }
 
     public TipoTelefone getTipo() {
-        return tipo;
+        return this.tipo;
     }
 
     public void setTipo(int opcao) {

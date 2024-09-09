@@ -55,6 +55,7 @@ public class Contato {
     public String getNumeroTelefone(){
         return this.telefone.getNumero();
     }
+
     public String getTipoTelefone(){
         return this.telefone.getTipo().getDescricao();
     }

@@ -4,8 +4,6 @@ public enum OperacoesSistema {
     ADICIONAR,
     DETALHAR,
     EDITAR,
-    REMOVER,
     LISTAR,
-    ADICIONAR_FILME,
-    SAIR
+    SAIR;
 }

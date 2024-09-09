@@ -11,6 +11,11 @@ public class Filme {
         this.nota = nota;
     }
 
+    public Filme(String nome, Double nota) {
+        this.nome = nome;
+        this.nota = nota;
+    }
+
     public String getNome() {
         return nome;
     }

@@ -54,7 +54,7 @@ public class ContatoService extends  Contato{
     }
 
     public void adicionarFilmeEmContato(Contato contato) {
-        contato.cadastrarFilme(filmeService.requisitarFilmeNoTerminal());
+        contato.cadastrarFilme(filmeService.requisitarFilmeNoTerminal(contato.getListaFilmes()));
     }
 
 }

@@ -6,7 +6,11 @@ public class AgendaController {
 
 
     public void adicionarContato() {
-        agendaService.adicionarContato();
+        try {
+            agendaService.adicionarContato();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void detalharContatoPorTelefone() {

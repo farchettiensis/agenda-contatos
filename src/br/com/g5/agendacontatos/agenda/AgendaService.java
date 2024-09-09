@@ -17,11 +17,10 @@ public class AgendaService extends Agenda{
         String telefone = telefoneService.requisitarStringTelefoneNoTerminal(getContatos());
         for (Contato contato : getContatos()) {
             if (contato.getNumeroTelefone().equals(telefone)) {
-                System.out.println("CONTATO:");
                 contatoService.detalharContato(contato);
             }
-            }
         }
+    }
 
 
     public void editarContatoPorStringTelefone() {

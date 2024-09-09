@@ -2,6 +2,7 @@ package br.com.g5.agendacontatos.contato;
 
 import br.com.g5.agendacontatos.filme.FilmeService;
 import br.com.g5.agendacontatos.telefone.TelefoneService;
+import br.com.g5.agendacontatos.util.Verificador;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,20 +12,31 @@ public class ContatoService extends  Contato{
     FilmeService filmeService = new FilmeService();
 
 
-    public Contato requisitarContatoNoTerminal(List<Contato> contatos) {
+    public Contato requisitarContatoNoTerminal (List<Contato> contatos) {
         Contato contato = new Contato();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o nome: ");
-        contato.setNome(sc.nextLine());
-        contato.setTelefone(telefoneService.requisitarTelefoneNoTerminal(contatos));
-        System.out.println("Digite o endereço: ");
-        contato.setEndereco(sc.nextLine());
-        System.out.println("Digite o e-mail: ");
-        contato.setEmail(sc.nextLine());
 
+        try {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Digite o nome: ");
+            contato.setNome(sc.nextLine());
+            contato.setTelefone(telefoneService.requisitarTelefoneNoTerminal(contatos));
+            System.out.println("Digite o endereço: ");
+            contato.setEndereco(sc.nextLine());
+            System.out.println("Digite o e-mail: ");
+            String email = sc.nextLine();
+            while (!Verificador.emailIsValido(email)) {
+                System.out.print("Formato de email inválido, tente novamente: ");
+                email = sc.nextLine();
+            }
+            contato.setEmail(email);
 
             System.out.println("Contato salvo com sucesso");
-            return  contato;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return contato;
     }
 
 

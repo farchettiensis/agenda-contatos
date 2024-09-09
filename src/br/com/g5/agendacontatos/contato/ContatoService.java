@@ -34,7 +34,7 @@ public class ContatoService extends  Contato{
             System.out.println("Contato salvo com sucesso");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Erro interno de sistema. Tente novamente.");
         }
         return contato;
     }
